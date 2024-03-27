@@ -35,22 +35,24 @@ class ExpensePolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Expense $expense)
+    public function update(User $user, Expense $expense): Response
     {
         return $user->id === $expense->user_id
             ? Response::allow()
             : Response::deny('You do not own this expense.');
+        
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Expense $expense)
+    public function delete(User $user, Expense $expense):Response
     {
         return $user->id === $expense->user_id
             ? Response::allow()
-            : Response::deny('You do not own this expense.'); 
+            : Response::deny('You do not own this expense.');
     }
+    
 
     /**
      * Determine whether the user can restore the model.
