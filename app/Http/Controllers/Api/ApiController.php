@@ -9,12 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class ApiController extends Controller
 {
+      
+    
     public function register(Request $request)
     {
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|confirmed',
+            'password' => 'required|string',
         ]);
 
         $user = User::create([
