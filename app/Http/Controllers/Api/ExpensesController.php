@@ -91,7 +91,7 @@ class ExpensesController extends Controller
         return response()->json([
             'message' => 'Expense created successfully',
             'expense' => $expense,
-        ]);
+        ], 201);
     }
 
 
@@ -203,6 +203,6 @@ class ExpensesController extends Controller
 
         return response()->json([
             'message' => 'Expense deleted successfully',
-        ]);
+        ], 204);
     }
 }
